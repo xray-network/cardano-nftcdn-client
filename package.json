@@ -1,5 +1,5 @@
 {
-  "name": "nftcdn-client",
+  "name": "cardano-nftcdn-client",
   "version": "1.0.0-1",
   "description": "TypeScript client for XRAY/Graph NFTCDN API",
   "author": "XRAY/Network <hello@xray.app>",
@@ -7,7 +7,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/xray-network/nftcdn-client.git"
+    "url": "git+https://github.com/xray-network/cardano-nftcdn-client.git"
   },
   "files": [
     "dist/"
