@@ -1,5 +1,5 @@
 import { expect, test, vi } from "vitest"
-import NftcdnClient from ".."
+import NftcdnClient from "../src"
 
 const baseUrl = "https://graph.xray.app/output/nftcdn/mainnet/api/v1"
 const headers = {}

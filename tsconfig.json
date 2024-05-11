@@ -11,14 +11,8 @@
     "strictNullChecks": true,
     "baseUrl": ".",
     "declaration": true,
-    "outDir": "dist/esm",
-    "paths": {
-      "*": [
-        "node_modules/*",
-        "src/types/*"
-      ]
-    }
+    "outDir": "dist/esm"
   },
   "include": ["src/**/*.ts"],
-  "exclude": ["src/tests"],
+  "exclude": ["test"],
 }
