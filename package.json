@@ -1,7 +1,7 @@
 {
   "name": "nftcdn-client",
   "version": "1.0.0-1",
-  "description": "TypeScript client for XRAY/Graph/NFTCDN API and original Koios API",
+  "description": "TypeScript client for XRAY/Graph NFTCDN API",
   "author": "XRAY/Network <hello@xray.app>",
   "homepage": "https://xray.app",
   "license": "MIT",
@@ -17,16 +17,20 @@
   "types": "dist/esm/index.d.ts",
   "scripts": {
     "build": "tsc -p tsconfig.json && tsc -p tsconfig-cjs.json",
+    "schema": "tsx src/schema/generate.ts",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,md,scss,css}\"",
-    "test": "tsx src/examples/index.ts",
+    "test": "vitest --run",
     "publish": "npm publish --access public"
   },
   "devDependencies": {
-    "prettier": "^3.2.5",
-    "tsx": "^4.9.3",
-    "typescript": "^5.4.5"
+    "@types/node": "^20.12.11",
+    "openapi-typescript": "^6.7.5",
+    "prettier": "^2.8.8",
+    "tsx": "^4.9.4",
+    "typescript": "^5.4.5",
+    "vitest": "^1.6.0"
   },
   "dependencies": {
-    "axios": "^1.6.8"
+    "openapi-fetch": "^0.9.5"
   }
 }

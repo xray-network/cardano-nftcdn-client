@@ -1,0 +1,297 @@
+openapi: 3.1.0
+info:
+  title: NFTCDN API
+  contact:
+    name: XRAY/Network
+    url: https://xray.app
+    email: hello@xray.app
+  license:
+    name: MIT License
+    url: https://github.com/xray-network/nftcdn-client/blob/main/LICENSE
+  version: v1.0.0
+  description: Cardano native tokens metadata/datums indexer/explorer and images CDN. IPFS gateway included
+
+paths:
+  /image:
+    get:
+      tags: Image
+      parameters: 
+        - in: path
+          name: fingerprint
+          required: true
+          schema:
+            type: string
+          description: Token fingerprint
+        - in: query
+          name: select
+          required: false
+          schema:
+            type: string
+            enum: ["cip25", "cip26", "cip68"]
+          description: From which CIP to select the image
+        - in: query
+          name: size
+          required: false
+          schema:
+            type: number
+          description: Image size
+        - in: query
+          name: crop
+          required: false
+          schema:
+            type: boolean
+          description: Crop image to square
+      responses:
+        '200':
+          description: Image
+          content:
+            "":
+              schema:
+                type: string
+                format: binary
+        '404':
+          description: Not found
+          content:
+            text/html:
+              schema:
+                type: string
+                example: Image Not Found
+      summary: Image
+      description: Get raw image by fingerprint
+
+  /metadata/{fingerprint}:
+    get:
+      tags: Metadata
+      parameters: 
+        - in: path
+          name: fingerprint
+          required: true
+          schema:
+            type: string
+          description: Token fingerprint
+        - in: query
+          name: raw
+          required: false
+          schema:
+            type: boolean
+          description: Raw image URL in metadata
+      responses:
+        '200':
+          description: Metadata
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Metadata"
+        '404':
+          description: Not found
+          content:
+            text/html:
+              schema:
+                type: string
+                example: Metadata Not Found
+      summary: Metadata
+      description: Get metadata by fingerprint
+
+  /metadata:
+    post:
+      tags: Metadata
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                fingerprints:
+                  type: array
+                  items:
+                    type: string
+                  description: Token fingerprints
+                raw:
+                  type: boolean
+                  description: Raw image URL in metadata
+      responses:
+        '200':
+          description: Metadata
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Metadata"
+        '400':
+          description: Bad request
+          content:
+            text/html:
+              schema:
+                type: string
+                example: Bad Request
+      summary: Metadata Bulk
+      description: Bulk metadata by fingerprint
+
+  /assets:
+    get:
+      tags: Assets
+      parameters: 
+        - in: query
+          name: fingerprint
+          required: false
+          schema:
+            type: string
+          description: Filter by fingerprint
+        - in: query
+          name: policy_id
+          required: false
+          schema:
+            type: string
+          description: Filter by policy_id
+        - in: query
+          name: asset_name
+          required: false
+          schema:
+            type: string
+          description: Filter by asset_name
+        - in: query
+          name: asset_name_ascii
+          required: false
+          schema:
+            type: string
+          description: Filter by asset_name_ascii
+        - in: query
+          name: limit
+          required: false
+          schema:
+            type: number
+          description: Limit of results
+        - in: query
+          name: offset
+          required: false
+          schema:
+            type: number
+          description: Offset of results
+      responses:
+        '200':
+          description: Assets
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Asset"
+        '404':
+          description: Not found
+          content:
+            text/html:
+              schema:
+                type: string
+                example: Assets Not Found
+      summary: Assets
+      description: Get assets by query
+
+  /ipfs:
+    get:
+      tags: IPFS
+      parameters: 
+        - in: path
+          name: _cid
+          required: true
+          schema:
+            type: string
+          description: IPFS CID
+      responses:
+        '200':
+          description: IPFS file
+          content:
+            "":
+              schema:
+                type: string
+                format: binary
+        '404':
+          description: Not found
+          content:
+            text/html:
+              schema:
+                type: string
+                example: IPFS File Not Found
+      summary: IPFS
+      description: Get IPFS file by CID
+
+
+components:
+  schemas:
+    Metadata:
+      type: object
+      properties:
+        fingerprint:
+          type: string
+        ref_fingerprint:
+          type: ["string", "null"]
+        policy_id:
+          type: number
+        asset_name:
+          type: string
+        asset_name_ascii:
+          type: string
+        asset_name_formatted:
+          type: string
+        asset_name_full:
+          type: string
+        asset_name_label:
+          type: ["number", "null"]
+        asset_name_label_type:
+          type: ["number", "null"]
+        decimals:
+          type: number
+        quantity:
+          type: string
+        image:
+          type: ["string", "null"]
+        metadata:
+          type: object
+          properties:
+            cip25: any
+            cip26:
+              type: object
+              properties:
+                fingerprint:
+                  type: string
+                policy_id:
+                  type: string
+                asset_name:
+                  type: ["string", "null"]
+                subject:
+                  type: string
+                policy:
+                  type: ["string", "null"]
+                name:
+                  type: ["string", "null"]
+                description:
+                  type: ["string", "null"]
+                ticker:
+                  type: ["string", "null"]
+                url:
+                  type: ["string", "null"]
+                logo:
+                  decimals: number
+            cip27: any
+            cip68: any
+    Asset:
+      type: object
+      properties:
+        fingerprint:
+          type: string
+        ref_fingerprint:
+          type: ["string", "null"]
+        policy_id:
+          type: string
+        asset_name:
+          type: string
+        asset_name_ascii:
+          type: string
+        asset_name_formatted:
+          type: string
+        asset_name_full:
+          type: string
+        asset_name_label:
+          type: ["number", "null"]
+        asset_name_label_type: 
+          type: ["string", "null"]
