@@ -4,7 +4,7 @@
  */
 
 
-export interface paths {
+export type paths = {
   "/image": {
     /**
      * Image
@@ -171,11 +171,11 @@ export interface paths {
       };
     };
   };
-}
+};
 
 export type webhooks = Record<string, never>;
 
-export interface components {
+export type components = {
   schemas: {
     Metadata: {
       fingerprint?: string;
@@ -225,7 +225,7 @@ export interface components {
   requestBodies: never;
   headers: never;
   pathItems: never;
-}
+};
 
 export type $defs = Record<string, never>;
 
