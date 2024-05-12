@@ -1,6 +1,6 @@
 import createClient, { HeadersOptions } from "openapi-fetch"
 import type { paths } from "./schema/schema"
-import * as NftcdnTypes from "./schema/schema"
+export * as NftcdnTypes from "./schema/schema"
 
 export default (baseUrl: string, headers?: HeadersOptions) => {
   return createClient<paths>({
