@@ -1186,10 +1186,10 @@ onetime@^6.0.0:
   dependencies:
     mimic-fn "^4.0.0"
 
-openapi-fetch@^0.9.5:
-  version "0.9.5"
-  resolved "https://registry.yarnpkg.com/openapi-fetch/-/openapi-fetch-0.9.5.tgz#b4614773d0433e48c0204a88f6c162059b7e728a"
-  integrity sha512-ToRnypJB2G5bEUZqJ4mGty/qDVgAZ4BW0znlXQAECxAp4EM8dYtgQ1mrw2Ij6W7knN4VawHvFq8uTqzXyMGNPA==
+openapi-fetch@^0.9.7:
+  version "0.9.7"
+  resolved "https://registry.yarnpkg.com/openapi-fetch/-/openapi-fetch-0.9.7.tgz#e224d1176e11ec68671caf0df6b736d649be97ed"
+  integrity sha512-NMp/GEmWSGO0b2d731IdGXcMP2PF85Rk1q+oy2Mx/DYMdP3pgTZTRamKxgZpkHhM4iOVsyD1iP5HKL9Fr6CH2Q==
   dependencies:
     openapi-typescript-helpers "^0.0.8"
 
