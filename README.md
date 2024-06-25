@@ -2,10 +2,9 @@
 <a href="https://www.npmjs.com/package/cardano-nftcdn-client"><img alt="NPM" src="https://img.shields.io/npm/v/cardano-nftcdn-client/latest?style=for-the-badge&logo=npm&labelColor=%231940ED&color=%233FCB9B"></a>
 <a href="https://github.com/ray-network/cardano-nftcdn-client/actions"><img alt="CODEQL" src="https://img.shields.io/github/actions/workflow/status/xray-network/cardano-nftcdn-client/codeql.yml?label=CodeQL&logo=github&style=for-the-badge&labelColor=%231940ED&color=%233FCB9B"></a>
   
-# Cardano NFTCDN TypeScript Client
+# TypeScript Client for XRAY/Graph NFTCDN
 
-> [!NOTE]
-> Automatically generated Openapi-fetch (Axios) client for [XRAY/Graph NFTCDN API](https://xray.app) based on [schema.yaml](https://raw.githubusercontent.com/xray-network/cardano-nftcdn-client/main/src/schema/schema.yaml) OpenAPI schema. Cardano native tokens metadata/datums indexer/explorer and images CDN. IPFS gateway included
+Automatically generated Openapi-fetch (Axios) client for [XRAY/Graph NFTCDN API](https://xray.app) based on [schema.yaml](https://raw.githubusercontent.com/xray-network/cardano-nftcdn-client/main/src/schema/schema.yaml) OpenAPI schema. Cardano native tokens metadata/datums indexer/explorer and images CDN. IPFS gateway included
 
 ## Installation
 
