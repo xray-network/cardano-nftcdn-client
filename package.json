@@ -1,6 +1,6 @@
 {
   "name": "cardano-nftcdn-client",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "TypeScript client for XRAY/Graph NFTCDN API",
   "author": "XRAY/Network <hello@xray.app>",
   "homepage": "https://xray.app",
@@ -31,13 +31,13 @@
   },
   "devDependencies": {
     "@types/node": "^20.12.11",
-    "openapi-typescript": "^6.7.5",
+    "openapi-typescript": "^7.4.4",
     "prettier": "^2.8.8",
     "tsup": "^8.1.0",
     "typescript": "^5.4.5",
     "vitest": "^1.6.0"
   },
   "dependencies": {
-    "openapi-fetch": "^0.9.7"
+    "openapi-fetch": "^0.13.3"
   }
 }
