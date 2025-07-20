@@ -25,7 +25,7 @@ npm i cardano-nftcdn-client
 ```TypeScript
 import NftcdnClient from "cardano-nftcdn-client"
 
-const client = NftcdnClient("https://graph.xray.app/output/nftcdn/mainnet/api/v1")
+const client = NftcdnClient("https://graph.xray.app/output/services/nftcdn/mainnet/api/v1")
 
 const app = async () => {
   const metadata = await client.GET("/metadata/{fingerprint}", {
@@ -55,7 +55,7 @@ app()
 ```TypeScript
 import NftcdnClient from "cardano-nftcdn-client"
 
-const client = NftcdnClient("https://graph.xray.app/output/nftcdn/mainnet/api/v1")
+const client = NftcdnClient("https://graph.xray.app/output/services/nftcdn/mainnet/api/v1")
 
 const app = async () => {
   const abortController = new AbortController()
@@ -93,13 +93,13 @@ app()
 Managed by XRAY/Network (XRAY/Graph, Cloudflare WAF & Load Balancer)
 
 ```
-https://graph.xray.app/output/nftcdn/mainnet/api/v1
+https://graph.xray.app/output/services/nftcdn/mainnet/api/v1
 ```
 
 ```
-https://graph.xray.app/output/nftcdn/preprod/api/v1
+https://graph.xray.app/output/services/nftcdn/preprod/api/v1
 ```
 
 ```
-https://graph.xray.app/output/nftcdn/preview/api/v1
+https://graph.xray.app/output/services/nftcdn/preview/api/v1
 ```
