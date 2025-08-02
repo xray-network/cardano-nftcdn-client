@@ -11,7 +11,7 @@ Automatically generated Openapi-fetch (Axios) client for NFTCDN API — Cardano 
 To install the client with Yarn, run:
 
 ```TypeScript
-yarn install cardano-nftcdn-client
+yarn add cardano-nftcdn-client
 ```
 
 To install the client with NPM, run:
@@ -48,6 +48,33 @@ app()
 ```
 
 ## Advanced Usage
+
+<details>
+<summary>Headers</summary>
+  
+``` TypeScript
+import NftcdnClient from "cardano-nftcdn-client"
+
+const baseUrl = "https://graph.xray.app/output/services/nftcdn/mainnet/api/v1"
+const headers = {} // rest headers
+const client = NftcdnClient(baseUrl, headers)
+
+const app = async () => {
+  const metadata = await client.GET("/metadata/{id}", {
+    params: {
+      path: {
+        id: "b6798a74fb7441ef5f7af1ff4ea6150bbb7aaeb0aca0113e558592f6584449414d4f4e44",
+      },
+    },
+  })
+
+  console.log(metadata.data)
+}
+
+app()
+```
+
+</details>
 
 <details>
 <summary>Request Cancellation (AbortSignal)</summary>
