@@ -4,7 +4,7 @@
   
 # TypeScript Client for XRAY/Graph NFTCDN
 
-Automatically generated Openapi-fetch (Axios) client for [XRAY/Graph NFTCDN API](https://xray.app) based on [schema.yaml](https://raw.githubusercontent.com/xray-network/cardano-nftcdn-client/main/src/schema/schema.yaml) OpenAPI schema. Cardano native tokens metadata/datums indexer/explorer and images CDN. IPFS gateway included
+Automatically generated Openapi-fetch (Axios) client for NFTCDN API — Cardano native tokens metadata/datums indexer/explorer and images CDN. IPFS gateway included.
 
 ## Installation
 
@@ -66,7 +66,7 @@ const app = async () => {
   }, 200)
 
   const assets = await client.GET("/assets", {
-    signal: abortController.signl,
+    signal: abortController.signal,
   })
 
   if (assets.data) {
@@ -82,10 +82,19 @@ app()
 
 </details>
 
-## Endpoints
+<details>
+<summary>Updating Schema</summary>
 
-* Check OpenAPI fetch documentations for available endpoint parameters: https://openapi-ts.pages.dev/openapi-fetch/
-* The client uses OpenAPI definitions from the NFTCDN API configuration: [schema.yaml](https://raw.githubusercontent.com/xray-network/cardano-nftcdn-client/main/src/schema/schema.yaml)
+Run schema update:
+```console
+yarn schema
+```
+
+</details>
+
+## Playground
+
+* XRAY/Graph NFTCDN — https://graph.xray.app/output/services/nftcdn/mainnet/api/v1/
 
 
 ## API URLs
