@@ -4,7 +4,7 @@ import openapiTS, { astToString } from "openapi-typescript"
 const run = async () => {
   const schema = (await openapiTS(
     new URL(
-      "https://graph.xray.app/output/nftcdn/mainnet/api/v1/openapi.json"
+      "https://graph.xray.app/output/services/nftcdn/mainnet/api/v1/openapi.json"
     ),
     {
       exportType: true,
